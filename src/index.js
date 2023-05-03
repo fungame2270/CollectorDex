@@ -8,6 +8,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
 import AllCollections from './routes/AllCollections';
 
 const router = createBrowserRouter([
