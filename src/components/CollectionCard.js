@@ -4,7 +4,6 @@ function CollectionCard({title,img,description}) {
         <figure><img src="https://i.imgur.com/00zlJWq.jpeg" alt="Shoes" /></figure>
         <div className="card-body">
           <h2 className="card-title font-bold">{title}</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
         </div>
       </div>
     );
