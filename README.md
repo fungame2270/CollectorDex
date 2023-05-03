@@ -1,8 +1,9 @@
 # Getting Started with Create React App
 
-# install tailwind and daysiui
+# install tailwind and daysiui and router
 npm install -D tailwindcss
 npm i daisyui 
+npm install react-router-dom localforage match-sorter sort-by
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
