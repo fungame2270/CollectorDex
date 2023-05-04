@@ -10,12 +10,17 @@ import {
 } from "react-router-dom";
 
 import AllCollections from './routes/AllCollections';
+import Login from './routes/Login';
 
 const API = "http://localhost:5000";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: < Login />,
+  },
+  {
+    path: "/Home",
     element: < Homepage />,
   },
   {

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import CollectionCard from '../components/CollectionCard';
 import Utilites from "../components/Utilites";
@@ -28,7 +27,7 @@ function AllCollections() {
 
       setCollections(response);
       
-      //setLoading(false);
+      setLoading(false);
     }
 
     loadData();
@@ -37,30 +36,26 @@ function AllCollections() {
 
   if(loading) {
     return (
-    <div className="container h-96 w-64 justify-center object-fill">
-      <h2 >Carregando...</h2>
-    </div>
+      <div className="grid w-full h-full content-center justify-items-center">
+        <div className="flex space-x-4 py-3 text-gray-950">
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></div>
+          <h2 className="text-center">Loading...</h2>
+        </div>
+      </div>
     );
   }
 
   return (
     <div className="text-gray-950 text-center">
       <NavBar></NavBar>
-      <div className="mx-20">
-    <div className="mx-12 text-gray-950 text-center pb-24">
-      <nav className="flex space-x-4 py-3">
-        <ul><Link to="/">Home</Link></ul>
-        <ul><Link to="/AllCollections">All Collections</Link></ul>
-      </nav>
-      <Utilites title="All Collections" />
-      <div className="grid grid-cols-3 py-3 gap-12 justify-items-center">
-      {collections.length === 0 && <p>No collection yet! Click on "New" to create a new collection."</p>}
-        {collections.map(collections => (
-          <CollectionCard title={collections.name} />
-        ))}
-      </div>
-      </div>
-      </div>
+      <div className="mx-12 text-gray-950 text-center">
+        <Utilites title="All Collections" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-3 gap-12 justify-items-center">
+        {collections.length === 0 && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
+          {collections.map(collections => (
+            <CollectionCard title={collections.name} key={collections.id} />
+          ))}
+        </div>
       </div>
     </div>
   );

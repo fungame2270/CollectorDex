@@ -1,19 +1,16 @@
 import { ReactComponent as Logo } from "../images/Logo.svg";
-
+import { Link, Form } from "react-router-dom";
 
 const Login = () => {
     return(
       
-        <div className="container mx-auto mb-10 flex flex-1 flex-col justify-center pb-96">
-
+        <div className="grid flex-1 flex-col justify-center">
+      
+          <div className="grid content-center justify-items-center" style={{margin: '50px 0px 100px 0px'}}>
+              <Logo/>
+          </div>
           
-        <div style={{margin: '50px 0px 100px 0px',position: 'relative',left: '25%'}}>
-            <Logo/>
-        </div>
-          
-        
-
-         <div style={{margin: '0px 500px 0px 500px'}}>
+         <div style={{margin: '0px 250px 0px 250px'}}>
            <form className="space-y-6" action="#" method="POST">
             <div>
               
@@ -47,9 +44,9 @@ const Login = () => {
 
                 <div className="mt-2 flex items-center justify-between">
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500" style={{color: '#58287F'}}>
+                 {/*  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500" style={{color: '#58287F'}}>
                     Forgot password?
-                  </a>
+                  </a> */}
                 </div>
               </div>
 
@@ -57,26 +54,27 @@ const Login = () => {
              </div>
 
              <div>
+              
               <button
-                style={{backgroundColor: '#58287F'}}
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 font-semibold leading-6 text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="btn btn-accent flex w-full justify-center rounded-md px-3 py-1.5 font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Sign in
+                <Link to="/Home" className="font-semibold object-fill">Sign In</Link>
+                {/* Usar form?? Se clicar no nome diretamente vai direto p home sem verificar se o form ta preenchido */}
               </button>
+            
+             
             </div>
           </form>
 
           <p className="mt-5 text-center text-sm text-gray-400">
-            Don't have account?{' '}
-            <a href="#" className="font-semibold">
+            Don't have an account?{' '}
+            {/* <a href="#" className="font-semibold">
               Register here
-            </a>
+            </a> */}
           </p>
         </div>
       </div>
-
-
 
     )
 }

@@ -1,18 +1,21 @@
 {
     "collections" : [
       {
+        "id": "1",
         "name": "Vinyl",
         "description": "vinyl records",
         "tags": [],
         "items": []
       },
       {
+        "id": "2",
         "name": "Vinyl",
         "description": "vinyl records",
         "tags": [],
         "items": []
       },
       {
+        "id": "3",
         "name": "Vinyl",
         "description": "vinyl records",
         "tags": [],
