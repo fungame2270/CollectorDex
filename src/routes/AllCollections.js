@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import CollectionCard from '../components/CollectionCard';
 import Utilites from "../components/Utilites";
+import NavBar from "../components/NavBar";
 
 import API from "../index.js" 
 
@@ -43,6 +44,9 @@ function AllCollections() {
   }
 
   return (
+    <div className="text-gray-950 text-center">
+      <NavBar></NavBar>
+      <div className="mx-20">
     <div className="mx-12 text-gray-950 text-center pb-24">
       <nav className="flex space-x-4 py-3">
         <ul><Link to="/">Home</Link></ul>
@@ -54,6 +58,9 @@ function AllCollections() {
         {collections.map(collections => (
           <CollectionCard title={collections.name} />
         ))}
+      </div>
+      </div>
+      </div>
       </div>
     </div>
   );
