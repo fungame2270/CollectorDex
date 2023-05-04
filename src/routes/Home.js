@@ -3,7 +3,6 @@ import  cena  from "../images/img.jpg"
 import  cena2  from "../images/CollectorDex.png"
 
 
-
 function Home() {
   return (
     <div className="text-gray-950 text-center">

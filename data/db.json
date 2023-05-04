@@ -1,0 +1,22 @@
+{
+    "collections" : [
+      {
+        "name": "Vinyl",
+        "description": "vinyl records",
+        "tags": [],
+        "items": []
+      },
+      {
+        "name": "Vinyl",
+        "description": "vinyl records",
+        "tags": [],
+        "items": []
+      },
+      {
+        "name": "Vinyl",
+        "description": "vinyl records",
+        "tags": [],
+        "items": []
+      }
+    ]
+}

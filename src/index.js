@@ -11,6 +11,8 @@ import {
 
 import AllCollections from './routes/AllCollections';
 
+const API = "http://localhost:5000";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,3 +35,5 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+export default API;

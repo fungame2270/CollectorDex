@@ -5,6 +5,7 @@ npm install -D tailwindcss
 npm i daisyui 
 npm install react-router-dom localforage match-sorter sort-by
 npm install react-icons --save
+npm install json-server
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
