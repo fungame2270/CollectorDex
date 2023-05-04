@@ -1,4 +1,4 @@
-function CollectionCard({title,img,description}) {
+function CollectionCard({title,img}) {
     return (
       <div className="card h-72 shadow-xl">
         <figure><img src="https://i.imgur.com/00zlJWq.jpeg" alt="Shoes" /></figure>
