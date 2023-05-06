@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import CollectionCard from '../components/CollectionCard';
 import Utilites from "../components/Utilites";
 import NavBar from "../components/NavBar";
+import CollectionCardModal from '../components/CollectionCardModal';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import API from "../index.js" 
 
@@ -13,6 +15,17 @@ function AllCollections() {
   const[tags, setTags] = useState([]);
   const[items, setItems] = useState([]);
   const[loading, setLoading] = useState(false);
+
+  const[collectionOpen,setCollectionOpen] = useState(false);
+  const [selectedId, setSelectedId] = useState(null)
+  const close = () => {
+    setCollectionOpen(false);
+    setSelectedId(null);
+  };
+  const open = (id) => {
+    setCollectionOpen(true);
+    setSelectedId(id);
+  };
 
   useEffect(() => {
 
@@ -53,10 +66,16 @@ function AllCollections() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-3 gap-12 justify-items-center">
         {collections.length === 0 && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
           {collections.map(collection => (
-            <CollectionCard collection={collection} key={collection.id}/>
+            <CollectionCard collection={collection} key={collection.id} onClick={() => (collectionOpen ? close() : open(collection))}/>
           ))}
         </div>
       </div>
+      <AnimatePresence
+        initial={false}
+        mode='wait'
+      >
+        {collectionOpen && <CollectionCardModal handleclose={close} props={selectedId}></CollectionCardModal>}
+      </AnimatePresence>
     </div>
   );
 }
