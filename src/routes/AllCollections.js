@@ -18,14 +18,14 @@ function AllCollections() {
   const[loading, setLoading] = useState(false);
 
   const[collectionOpen,setCollectionOpen] = useState(false);
-  const [selectedId, setSelectedId] = useState(null)
+  const [selectedCollection, setSelectedCollection] = useState(null)
   const close = () => {
     setCollectionOpen(false);
-    setSelectedId(null);
+    setSelectedCollection(null);
   };
   const open = (id) => {
     setCollectionOpen(true);
-    setSelectedId(id);
+    setSelectedCollection(id);
   };
 
   useEffect(() => {
@@ -68,7 +68,7 @@ function AllCollections() {
         initial={false}
         mode='wait'
       >
-        {collectionOpen && <CollectionCardModal handleclose={close} props={selectedId}></CollectionCardModal>}
+        {collectionOpen && <CollectionCardModal handleclose={close} props={selectedCollection}></CollectionCardModal>}
       </AnimatePresence>
     </div>
   );
