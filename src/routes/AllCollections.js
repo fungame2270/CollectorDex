@@ -4,6 +4,7 @@ import Utilites from "../components/Utilites";
 import NavBar from "../components/NavBar";
 import CollectionCardModal from '../components/CollectionCardModal';
 import { motion, AnimatePresence } from 'framer-motion';
+import LoadingPage from '../components/LoadingPage';
 
 import API from "../index.js" 
 
@@ -48,23 +49,16 @@ function AllCollections() {
   }, [])
 
   if(loading) {
-    return (
-      <div className="grid w-full h-full content-center justify-items-center">
-        <div className="flex space-x-4 py-3 text-gray-950">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></div>
-          <h2 className="text-center">Loading...</h2>
-        </div>
-      </div>
-    );
+    return(<LoadingPage></LoadingPage>)
   }
 
   return (
     <div className="text-gray-950 text-center bg-bgblue">
       <NavBar></NavBar>
       <div className="mx-12 text-gray-950 text-center">
-        <Utilites title="All Collections" />
+        <Utilites title="All Collections" searchOnly={false}/>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-3 gap-12 justify-items-center">
-        {collections.length === 0 && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
+        {collections.length === 0 && !{loading} && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
           {collections.map(collection => (
             <CollectionCard collection={collection} key={collection.id} onClick={() => (collectionOpen ? close() : open(collection))}/>
           ))}
