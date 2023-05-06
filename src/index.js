@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Homepage from './routes/Homepage';
 import reportWebVitals from './reportWebVitals';
 
 import {
@@ -9,6 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import Homepage from './routes/Homepage';
 import AllCollections from './routes/AllCollections';
 import Login from './routes/Login';
 
