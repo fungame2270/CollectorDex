@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import BackDrop from "./BackDrop";
 import { AiFillStar } from 'react-icons/ai';
+import { Link } from "react-router-dom";
 
 const CollectionCardModal = ({handleclose , props}) => {
 
@@ -22,7 +23,7 @@ const CollectionCardModal = ({handleclose , props}) => {
                         <p className="font-bold text-left text-3xl">Description:</p>
                         <p className="text-left text-2xl">{props.description}</p>
                         <div className="flex justify-around mt-7">
-                          <button class="btn btn-primary drop-shadow">View</button>
+                          <Link to={props.id} class="btn btn-primary drop-shadow">View</Link>
                           <button class="btn btn-primary drop-shadow">Share</button>
                         </div>
                     </div>
