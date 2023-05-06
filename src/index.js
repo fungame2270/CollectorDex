@@ -11,6 +11,7 @@ import {
 import Homepage from './routes/Homepage';
 import AllCollections from './routes/AllCollections';
 import Login from './routes/Login';
+import CollectionPage from './routes/CollectionPage';
 
 const API = "http://localhost:5000";
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/AllCollections",
     element: < AllCollections />,
+  },
+  {
+    path: "/AllCollections/:id",
+    element: < CollectionPage />,
   },
 ]);
 

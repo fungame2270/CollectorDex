@@ -23,6 +23,7 @@ function AllCollections() {
     setCollectionOpen(false);
     setSelectedCollection(null);
   };
+  
   const open = (id) => {
     setCollectionOpen(true);
     setSelectedCollection(id);
@@ -55,7 +56,7 @@ function AllCollections() {
   return (
     <div className="text-gray-950 text-center bg-bgblue">
       <NavBar></NavBar>
-      <div className="mx-12 text-gray-950 text-center">
+      <div className="mx-24 text-gray-950 text-center">
         <Utilites title="All Collections" searchOnly={false}/>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-3 gap-12 justify-items-center">
         {collections.length === 0 && !{loading} && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}

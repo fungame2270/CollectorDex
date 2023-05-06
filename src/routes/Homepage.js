@@ -41,8 +41,16 @@ function Homepage() {
   return (
     <div className="text-gray-950 text-center bg-bgblue">
       <NavBar></NavBar>
-      <div className="mx-12 text-gray-950 text-center">
+      <div className="mx-24 text-gray-950 text-center">
         <Utilites title = "Home" searchOnly={true}/>
+        <h1 className="text-4xl text-start mb-5">Recent</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-3 gap-12 justify-items-center">
+        {collections.length === 0 && !{loading} && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
+          {collections.map(collection => (
+            <CollectionCard collection={collection} key={collection.id}/>
+          ))}
+        </div>
+        <h1 className="text-4xl text-start mb-5 mt-12">Favorites</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-3 gap-12 justify-items-center">
         {collections.length === 0 && !{loading} && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
           {collections.map(collection => (
