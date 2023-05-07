@@ -3,7 +3,7 @@ import CollectionCard from '../components/CollectionCard';
 import Utilites from "../components/Utilites";
 import NavBar from "../components/NavBar";
 import CollectionCardModal from '../components/CollectionCardModal';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import LoadingPage from '../components/LoadingPage';
 
 import API from "../index.js" 
@@ -18,13 +18,24 @@ function AllCollections() {
   const[loading, setLoading] = useState(false);
 
   const[collectionOpen,setCollectionOpen] = useState(false);
-  const [selectedCollection, setSelectedCollection] = useState(null)
-  const close = () => {
+  const [selectedCollection, setSelectedCollection] = useState(null);
+
+  const[addingOpen,setAddingOpen] = useState(false);
+
+  const closeAdding = () => {
+      setAddingOpen(false);
+  };
+  
+  const openAdding = () => {
+      setAddingOpen(true);
+  };
+
+  const closeCollection = () => {
     setCollectionOpen(false);
     setSelectedCollection(null);
   };
   
-  const open = (id) => {
+  const openCollection = (id) => {
     setCollectionOpen(true);
     setSelectedCollection(id);
   };
@@ -57,11 +68,11 @@ function AllCollections() {
     <div className="text-gray-950 text-center bg-bgblue">
       <NavBar></NavBar>
       <div className="mx-24 text-gray-950 text-center">
-        <Utilites title="All Collections" searchOnly={false}/>
+        <Utilites title="All Collections" searchOnly={false} addingOpen={addingOpen} openAdding={openAdding} closeAdding={closeAdding}/>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-3 gap-12 justify-items-center">
         {collections.length === 0 && !{loading} && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
           {collections.map(collection => (
-            <CollectionCard collection={collection} key={collection.id} onClick={() => (collectionOpen ? close() : open(collection))}/>
+            <CollectionCard collection={collection} key={collection.id} onClick={() => (collectionOpen ? closeCollection() : openCollection(collection))}/>
           ))}
         </div>
       </div>
@@ -69,7 +80,13 @@ function AllCollections() {
         initial={false}
         mode='wait'
       >
-        {collectionOpen && <CollectionCardModal handleclose={close} props={selectedCollection}></CollectionCardModal>}
+        {collectionOpen && <CollectionCardModal handleclose={closeCollection} collection={selectedCollection} adding={false} ></CollectionCardModal>}
+      </AnimatePresence>
+      <AnimatePresence
+        initial={false}
+        mode='wait'
+      >
+        {addingOpen && <CollectionCardModal handleclose={closeAdding} collection={null} adding={true} ></CollectionCardModal>}
       </AnimatePresence>
     </div>
   );
