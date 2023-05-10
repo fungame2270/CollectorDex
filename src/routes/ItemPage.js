@@ -41,7 +41,7 @@ const ItemPage = () => {
     }
 
     return(
-        <div>
+        <div className="bg-bgblue">
             <NavBar></NavBar>
             <div className="grid md:grid-cols-2  text-black bg-bgblue pt-10 mx-20">
                 <div className=" place-self-center">
