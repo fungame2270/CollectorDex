@@ -65,11 +65,7 @@ function AllCollections() {
     
     loadData();
     
-  }, [])
-
-  
-  console.log(collectionF)
-
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -1,35 +1,50 @@
 {
-    "collections" : [
-      {
-        "id": "1",
-        "name": "Vinyl",
-        "img": "https://images.unsplash.com/photo-1629726211447-3df75890f372?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-        "description": "vinyl records",
-        "items": [
-          {
-            "id": "1",
-            "name": "Yellow Submarine - The Beatles",
-            "img":"https://cdn.shopify.com/s/files/1/0308/8852/5956/products/24_4_21_3_42pmMicrosoftLens272_1600x.jpg?v=1620115681",
-            "description": "we all live in the yellow submarine",
-            "tags": ["Drawer 2", "Giro", "Beatles", "booga", "submarino", "yelow", "1968"]
-          }
-        ]
-      },
-      {
-        "id": "2",
-        "name": "Dogs",
-        "img": "https://i.imgur.com/JXetxQh.jpeg",
-        "description": "A minha colecao canina. Uns doceis outros bravos mas todos estao no meu coracon",
-        "tags": [],
-        "items": []
-      },
-      {
-        "id": "3",
-        "name": "Vinyl",
-        "img": "https://images.unsplash.com/photo-1629726211447-3df75890f372?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-        "description": "vinyl records",
-        "tags": [],
-        "items": []
-      }
-    ]
+  "collections": [
+    {
+      "id": "1",
+      "name": "Vinyl",
+      "img": "https://images.unsplash.com/photo-1629726211447-3df75890f372?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "description": "vinyl records",
+      "items": [
+        {
+          "id": "1",
+          "name": "Yellow Submarine - The Beatles",
+          "img": "https://cdn.shopify.com/s/files/1/0308/8852/5956/products/24_4_21_3_42pmMicrosoftLens272_1600x.jpg?v=1620115681",
+          "description": "we all live in the yellow submarine",
+          "tags": [
+            "Drawer 2",
+            "Giro",
+            "Beatles",
+            "booga",
+            "submarino",
+            "yelow",
+            "1968"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Dogs",
+      "img": "https://i.imgur.com/JXetxQh.jpeg",
+      "description": "A minha colecao canina. Uns doceis outros bravos mas todos estao no meu coracon",
+      "tags": [],
+      "items": []
+    },
+    {
+      "id": "3",
+      "name": "Vinyl",
+      "img": "https://images.unsplash.com/photo-1629726211447-3df75890f372?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "description": "vinyl records",
+      "tags": [],
+      "items": []
+    },
+    {
+      "id": "4",
+      "name": "Caps",
+      "img": "https://www.pngkey.com/png/detail/233-2332677_ega-png.png",
+      "description": "",
+      "items": []
+    }
+  ]
 }
