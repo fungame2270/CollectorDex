@@ -78,7 +78,7 @@ function AddItem() {
       
 
   return (
-    <div className="text-gray-950 text-center bg-bgblue">
+    <div className="text-gray-950 text-center bg-bgblue h-screen">
         <NavBar></NavBar>
         <h1 className="m-20 text-4xl font-bold text-start">Adding to {title}</h1>
         <div className="grid md:grid-cols-2 mt-12 mb-20 mx-24 text-gray-950 text-center">
