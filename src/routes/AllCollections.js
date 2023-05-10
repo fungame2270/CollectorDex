@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar";
 import CollectionCardModal from '../components/CollectionCardModal';
 import { AnimatePresence } from 'framer-motion';
 import LoadingPage from '../components/LoadingPage';
+import useScrollBlock from "../lock";
 
 import API from "../index.js" 
 
@@ -17,6 +18,7 @@ function AllCollections() {
   const[tags, setTags] = useState([]);
   const[items, setItems] = useState([]);
   const[loading, setLoading] = useState(false);
+  const [blockScroll, allowScroll] = useScrollBlock();
 
 
   const choseSearch = (text) => {
@@ -43,11 +45,13 @@ function AllCollections() {
   const closeCollection = () => {
     setCollectionOpen(false);
     setSelectedCollection(null);
+    allowScroll();
   };
   
   const openCollection = (id) => {
     setCollectionOpen(true);
     setSelectedCollection(id);
+    blockScroll();
   };
 
   useEffect(() => {
@@ -72,14 +76,13 @@ function AllCollections() {
   }, [])
 
   
-  console.log(collectionF)
 
   if(loading) {
     return(<LoadingPage></LoadingPage>)
   }
 
   return (
-    <div className="text-gray-950 text-center bg-bgblue">
+    <div className="text-gray-950 text-center bg-bgblue ">
       <NavBar></NavBar>
       <div className="mx-24 text-gray-950 text-center">
         <Utilites title="All Collections" searchOnly={false} addingOpen={addingOpen} openAdding={openAdding} closeAdding={closeAdding} searchSet={choseSearch}/>
@@ -94,7 +97,7 @@ function AllCollections() {
         initial={false}
         mode='wait'
       >
-        {collectionOpen && <CollectionCardModal handleclose={closeCollection} collection={selectedCollection} adding={false} ></CollectionCardModal>}
+        {collectionOpen && <CollectionCardModal handleclose={closeCollection} collection={selectedCollection} adding={false}></CollectionCardModal>}
       </AnimatePresence>
       <AnimatePresence
         initial={false}
