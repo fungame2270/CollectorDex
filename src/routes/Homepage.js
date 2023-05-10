@@ -20,6 +20,7 @@ function Homepage() {
 
   const[collectionOpen,setCollectionOpen] = useState(false);
   const [selectedCollection, setSelectedCollection] = useState(null)
+  
   const closeCollection = () => {
     setCollectionOpen(false);
     setSelectedCollection(null);

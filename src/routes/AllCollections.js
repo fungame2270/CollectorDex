@@ -14,10 +14,6 @@ function AllCollections() {
 
   const[collections, setCollections] = useState([]);
   const[collectionF , setCollectionF] = useState([]);
-  const[name, setName] = useState("");
-  const[description, setDescription] = useState("");
-  const[tags, setTags] = useState([]);
-  const[items, setItems] = useState([]);
   const [blockScroll, allowScroll] = useScrollBlock();
 
 
@@ -74,10 +70,7 @@ function AllCollections() {
     
     loadData();
     
-  }, [])
-
-  
-
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

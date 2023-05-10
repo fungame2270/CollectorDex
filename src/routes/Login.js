@@ -1,7 +1,16 @@
 import { ReactComponent as Logo } from "../images/Logo.svg";
-import { Link, Form } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+      e.preventDefault();
+      console.log("submit");
+      navigate('/Home');
+  } 
+
     return(
       
         <div className="grid flex-1 flex-col justify-center">
@@ -11,7 +20,7 @@ const Login = () => {
           </div>
           
          <div style={{margin: '0px 250px 0px 250px'}}>
-           <form className="space-y-6" action="#" method="POST">
+           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               
               <div className="mt-2 block text-sm font-medium leading-6 text-gray-900">
@@ -58,8 +67,9 @@ const Login = () => {
               <button
                 type="submit"
                 className="btn btn-accent flex w-full justify-center rounded-md px-3 py-1.5 font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                onSubmit={handleSubmit}
               >
-                <Link to="/Home" className="font-semibold object-fill">Sign In</Link>
+                Sign In
                 {/* Usar form?? Se clicar no nome diretamente vai direto p home sem verificar se o form ta preenchido */}
               </button>
             
