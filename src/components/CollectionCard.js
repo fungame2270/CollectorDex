@@ -2,8 +2,11 @@ function CollectionCard({collection, onClick}) {
     return (
       <div className="card h-60 shadow-xl" onClick={onClick}>
         <figure><img src={collection.img} alt="Collection img" /></figure>
-        <div className="card-body">
-          <h2 className="card-title font-bold">{collection.name}</h2>
+        <div className="h-[90%]">
+          <div className=" text-2xl flex flex-row justify-between my-7 mx-10">
+            <p className=" font-bold">{collection.name}</p>
+            <p>({collection.items.length})</p>
+          </div>
         </div>
       </div>
     );

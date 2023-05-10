@@ -12,12 +12,21 @@ function CollectionPage() {
     
     const[collection, setCollection] = useState([]);
     const[items, setItems] = useState([]);
+    const[itemsF, setItemsF] = useState([]);
     const[name, setName] = useState("");
     const[description, setDescription] = useState("");
     const[tags, setTags] = useState([]);
     const[loading, setLoading] = useState(false);
 
     const {id} = useParams();
+
+    const choseSearch = (text) => {
+      if(text.length > 0){
+          setItemsF(items.filter(item => item.name.toUpperCase().includes(text.toUpperCase())));
+      }else{
+        setItemsF(items);
+      }
+    };
   
     useEffect(() => {
        
@@ -34,6 +43,7 @@ function CollectionPage() {
   
         setCollection(response);
         setItems(response.items);
+        setItemsF(response.items);
         
         setLoading(false);
       }
@@ -50,10 +60,10 @@ function CollectionPage() {
       <div className="text-gray-950 text-center bg-bgblue">
         <NavBar></NavBar>
         <div className="mx-24 text-gray-950 text-center">
-          <Utilites title={collection.name} searchOnly={false}/>
+          <Utilites title={collection.name} searchOnly={false} searchSet={choseSearch}/>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-3 gap-12 justify-items-center">
           { items.length === 0 && !{loading} && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
-            { items.map(item => (
+            { itemsF.map(item => (
               <Link to={item.id}> <ItemCard item={item} key={item.id}/> </Link>
             ))  }
           </div>

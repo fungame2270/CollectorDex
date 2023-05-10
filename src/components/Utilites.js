@@ -2,7 +2,11 @@ import { ReactComponent as Filter } from "../images/filter.svg";
 import { AiOutlineSearch } from 'react-icons/ai';
 
 
-function Utilites({title, searchOnly, addingOpen, closeAdding, openAdding}) {
+function Utilites({title, searchOnly, addingOpen, closeAdding, openAdding, searchSet}) {
+
+    const handleSearchChange = (event) =>{
+        searchSet(event.target.value);
+    };
 
     if(searchOnly){
         return (
@@ -25,7 +29,7 @@ function Utilites({title, searchOnly, addingOpen, closeAdding, openAdding}) {
            <div><button className="btn btn-primary w-28 drop-shadow" onClick={() => (addingOpen ? closeAdding() : openAdding())}>New +</button></div>
            <div><button className="btn btn-primary w-28 drop-shadow"> <p className="mr-2">Filter</p> <Filter></Filter> </button></div>
            <div className="input-group drop-shadow float-right justify-end">
-                <input className="input w-full max-w-[50%]" placeholder="Search for collection..."></input>
+                <input className="input w-full max-w-[50%]" placeholder="Search for collection..." onChange={handleSearchChange}></input>
                 <button className="btn btn-secondary"><AiOutlineSearch></AiOutlineSearch></button>
            </div>
         </div>

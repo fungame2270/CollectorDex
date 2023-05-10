@@ -11,11 +11,21 @@ import API from "../index.js"
 function AllCollections() {
 
   const[collections, setCollections] = useState([]);
+  const[collectionF , setCollectionF] = useState([]);
   const[name, setName] = useState("");
   const[description, setDescription] = useState("");
   const[tags, setTags] = useState([]);
   const[items, setItems] = useState([]);
   const[loading, setLoading] = useState(false);
+
+
+  const choseSearch = (text) => {
+    if(text.length > 0){
+        setCollectionF(collections.filter(collection => collection.name.toUpperCase().includes(text.toUpperCase())));
+    }else{
+        setCollectionF(collections);
+    }
+  };
 
   const[collectionOpen,setCollectionOpen] = useState(false);
   const [selectedCollection, setSelectedCollection] = useState(null);
@@ -52,6 +62,7 @@ function AllCollections() {
       .catch(err => console.log(err));
 
       setCollections(response);
+      setCollectionF(response);
       
       setLoading(false);
     }
@@ -59,6 +70,9 @@ function AllCollections() {
     loadData();
 
   }, [])
+
+  
+  console.log(collectionF)
 
   if(loading) {
     return(<LoadingPage></LoadingPage>)
@@ -68,12 +82,12 @@ function AllCollections() {
     <div className="text-gray-950 text-center bg-bgblue">
       <NavBar></NavBar>
       <div className="mx-24 text-gray-950 text-center">
-        <Utilites title="All Collections" searchOnly={false} addingOpen={addingOpen} openAdding={openAdding} closeAdding={closeAdding}/>
+        <Utilites title="All Collections" searchOnly={false} addingOpen={addingOpen} openAdding={openAdding} closeAdding={closeAdding} searchSet={choseSearch}/>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-3 gap-12 justify-items-center">
         {collections.length === 0 && !{loading} && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
-          {collections.map(collection => (
-            <CollectionCard collection={collection} key={collection.id} onClick={() => (collectionOpen ? closeCollection() : openCollection(collection))}/>
-          ))}
+          {collectionF.map(collection => {
+                return <CollectionCard collection={collection} key={collection.id} onClick={() => (collectionOpen ? closeCollection() : openCollection(collection))}/>
+          })}
         </div>
       </div>
       <AnimatePresence
