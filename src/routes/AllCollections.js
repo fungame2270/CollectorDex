@@ -6,6 +6,7 @@ import CollectionCardModal from '../components/CollectionCardModal';
 import { AnimatePresence } from 'framer-motion';
 import LoadingPage from '../components/LoadingPage';
 import useScrollBlock from "../lock";
+import Swal from 'sweetalert2';
 
 import API from "../index.js" 
 
@@ -17,7 +18,6 @@ function AllCollections() {
   const[description, setDescription] = useState("");
   const[tags, setTags] = useState([]);
   const[items, setItems] = useState([]);
-  const[loading, setLoading] = useState(false);
   const [blockScroll, allowScroll] = useScrollBlock();
 
 
@@ -29,6 +29,7 @@ function AllCollections() {
     }
   };
 
+  const[loading, setLoading] = useState(false);
   const[collectionOpen,setCollectionOpen] = useState(false);
   const [selectedCollection, setSelectedCollection] = useState(null);
 
@@ -53,30 +54,66 @@ function AllCollections() {
     setSelectedCollection(id);
     blockScroll();
   };
-
+  
   useEffect(() => {
 
     const loadData = async () => {
-
+      
       setLoading(true);
 
       const response = await fetch(API + "/collections")
       .then(response => response.json())
       .then(data => data)
       .catch(err => console.log(err));
-
+      
       setCollections(response);
       setCollectionF(response);
       
       setLoading(false);
     }
-
+    
     loadData();
-
+    
   }, [])
 
   
 
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const collection = {
+      id: collections.length + 1 + "",
+      name: e.target.elements.name.value,
+      img: "https://www.pngkey.com/png/detail/233-2332677_ega-png.png",
+      description: e.target.elements.desc.value,
+      items: []
+    }  
+    
+    setLoading(true);
+
+    await fetch(API + "/collections", {
+      method: "POST",
+      body: JSON.stringify(collection),
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
+
+    setCollections( (prevState) => [...prevState, collection]);
+
+    setLoading(false);
+
+    closeAdding();
+    Swal.fire({
+      title: "Collection created successfully!",
+      icon: "success",
+      timer: 2000,
+      position: 'top',
+      showConfirmButton: false,
+    });
+  };
+  
   if(loading) {
     return(<LoadingPage></LoadingPage>)
   }
@@ -97,13 +134,13 @@ function AllCollections() {
         initial={false}
         mode='wait'
       >
-        {collectionOpen && <CollectionCardModal handleclose={closeCollection} collection={selectedCollection} adding={false}></CollectionCardModal>}
+        {collectionOpen && <CollectionCardModal handleclose={closeCollection} collection={selectedCollection} adding={false} handleSubmit={null}></CollectionCardModal>}
       </AnimatePresence>
       <AnimatePresence
         initial={false}
         mode='wait'
       >
-        {addingOpen && <CollectionCardModal handleclose={closeAdding} collection={null} adding={true} ></CollectionCardModal>}
+        {addingOpen && <CollectionCardModal handleclose={closeAdding} collection={null} adding={true} handleSubmit={handleSubmit} ></CollectionCardModal>}
       </AnimatePresence>
     </div>
   );
