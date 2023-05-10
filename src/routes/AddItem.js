@@ -1,7 +1,7 @@
 import NavBar from "../components/NavBar";
 import img_placeholder from "../images/img_placeholder.jpeg"
 import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import LoadingPage from '../components/LoadingPage';
 import Swal from 'sweetalert2';
 
@@ -84,7 +84,7 @@ function AddItem() {
         <div className="grid md:grid-cols-2 mt-12 mb-20 mx-24 text-gray-950 text-center">
 
           <div className="pr-[20%]">
-              <img src={img_placeholder}/>
+              <img src={img_placeholder} alt="placeholder"/>
           </div>
 
           <form className="form-control w-full max-w-sm" style={{fontSize: 18}} onSubmit={handleSubmit}>

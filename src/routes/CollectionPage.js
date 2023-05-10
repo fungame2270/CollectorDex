@@ -1,6 +1,5 @@
 import ItemCard from "../components/ItemCard.js"
 import { useState, useEffect } from 'react';
-import Utilites from "../components/Utilites";
 import NavBar from "../components/NavBar";
 import LoadingPage from '../components/LoadingPage';
 import { useParams, Link } from "react-router-dom";
@@ -14,9 +13,6 @@ function CollectionPage() {
     const[collection, setCollection] = useState([]);
     const[items, setItems] = useState([]);
     const[itemsF, setItemsF] = useState([]);
-    const[name, setName] = useState("");
-    const[description, setDescription] = useState("");
-    const[tags, setTags] = useState([]);
     const[loading, setLoading] = useState(false);
 
     const {id} = useParams();

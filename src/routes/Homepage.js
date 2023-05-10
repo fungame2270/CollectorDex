@@ -4,17 +4,13 @@ import Utilites from "../components/Utilites";
 import NavBar from "../components/NavBar";
 import LoadingPage from '../components/LoadingPage';
 import CollectionCardModal from '../components/CollectionCardModal';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import useScrollBlock from "../lock";
 
 import API from "../index.js" 
 
 function Homepage() {
   const[collections, setCollections] = useState([]);
-  const[name, setName] = useState("");
-  const[description, setDescription] = useState("");
-  const[tags, setTags] = useState([]);
-  const[items, setItems] = useState([]);
   const[loading, setLoading] = useState(false);
   const [blockScroll, allowScroll] = useScrollBlock();
 
