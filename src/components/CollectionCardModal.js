@@ -30,7 +30,7 @@ const CollectionCardModal = ({handleclose ,collection, adding, handleSubmit}) =>
                         <input className="input" type="text" name="name" placeholder="Type name here..." value={"" || name} onChange={(e) => setName(e.target.value)} required/>
                         <label className="text-left text-2xl"  htmlFor="title">Description:</label>
                         <textarea className="textarea" type="textarea" name="desc" placeholder="Type a description..." value={"" || description} onChange={(e) => setDescription(e.target.value)}></textarea>
-                        <input className="btn btn-accent" type="submit" value="Create" />
+                        <input className="btn btn-accent mt-5" type="submit" value="Create" />
                     </form>
                 </div>
             </div>

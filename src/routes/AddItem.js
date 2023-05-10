@@ -103,19 +103,15 @@ function AddItem() {
               </label>
               <textarea className="textarea textarea-bordered h-24 mb-0 drop-shadow-md" name="tags" placeholder="#Tag" value={"" || tags} onChange={(e) => setTags(e.target.value.split(/#\s,/))}></textarea>
 
-              <div className="mb-10 ">
-                  
-              <input type="submit" className="mr-3 mt-10 btn btn-active btn-primary drop-shadow-md" value="create" readOnly/>
-              <input type="submit" className="mt-10 btn btn-active btn-primary drop-shadow-md" value="Create and Share" readOnly/>
-              <Link to={"/AllCollections/" + colid} className="mt-5 btn btn-active btn-primary w-[95%] drop-shadow-md">Cancel and go back to {title}</Link>
-                  
-              </div>
-              
-                      
-
-              
-              
-          </form>
+            <div className="mb-10 ">
+                
+            <input type="submit" className="mr-3 mt-10 btn btn-accent drop-shadow-md" value="create" readOnly/>
+            <input type="submit" className="mt-10 btn btn-accent drop-shadow-md" value="Create and Share" readOnly/>
+            <Link to={"/AllCollections/" + colid} className="mt-5 btn btn-outline btn-error w-[95%] drop-shadow-md">Cancel and go back to {title}</Link>
+                
+            </div>
+            
+        </form>
 
         </div>
       </div>

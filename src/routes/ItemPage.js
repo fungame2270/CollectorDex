@@ -50,9 +50,9 @@ const ItemPage = () => {
                         <img className=" aspect-square rounded-2xl w-[60%] object-cover place-self-center" src={item.img} alt={item.name}></img>
                     </div>
                     <div className="flex justify-between mx-[20%] pt-10 gap-10">
-                        <button class="btn btn-primary drop-shadow-md">Share <BsFillShareFill className="ml-2"></BsFillShareFill></button>
-                        <button class="btn btn-primary drop-shadow-md">Add to whishlist</button>
-                        <button class="btn btn-primary drop-shadow-md">Mark as “to sell” <MdSell className="ml-2"></MdSell></button>
+                        <button className="btn btn-primary drop-shadow-md">Share <BsFillShareFill className="ml-2"></BsFillShareFill></button>
+                        <button className="btn btn-primary drop-shadow-md">Add to whishlist</button>
+                        <button className="btn btn-primary drop-shadow-md">Mark as “to sell” <MdSell className="ml-2"></MdSell></button>
                     </div>
                 </div>
                 <div className="  mt-20 mr-20">
@@ -63,12 +63,12 @@ const ItemPage = () => {
                     <p className="text-3xl font-bold pb-2">Tags:</p>
                     <div className="grid grid-cols-3 md:grid-cols-6 justify-around gap-y-2">
                        {item.tags && item.tags.map(tag => (
-                            <div className=" bg-green-300 max-w-[90%] min-w-[10%] rounded-3xl text-lg border-green-600 border-solid border-2 text-center">{tag}</div>
+                            <div key={tag} className=" bg-green-300 max-w-[90%] min-w-[10%] rounded-3xl text-lg border-green-600 border-solid border-2 text-center">{tag}</div>
                        ))} 
                     </div>
                     <div className="flex flex-row justify-around p-[9%]">
-                        <button class="btn btn-primary drop-shadow-md">Edit <FaPencilAlt className="ml-2 text-lg"></FaPencilAlt></button>
-                        <button class="btn btn-primary drop-shadow-md">Delete <MdDeleteForever className="ml-2 text-2xl"></MdDeleteForever></button>
+                        <button className="btn btn-primary drop-shadow-md">Edit <FaPencilAlt className="ml-2 text-lg"></FaPencilAlt></button>
+                        <button className="btn btn-primary drop-shadow-md">Delete <MdDeleteForever className="ml-2 text-2xl"></MdDeleteForever></button>
                     </div>
                 </div>
             </div>
