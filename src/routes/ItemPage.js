@@ -2,6 +2,9 @@ import NavBar from "../components/NavBar";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import LoadingPage from '../components/LoadingPage';
+import { FaPencilAlt } from "react-icons/fa"
+import { MdSell, MdDeleteForever } from "react-icons/md"
+import { BsFillShareFill } from "react-icons/bs"
 
 import API from "../index.js"
 
@@ -12,7 +15,7 @@ const ItemPage = () => {
     const[loading, setLoading] = useState(false);
     const[ tags, setTags] = useState([]);
 
-    const { itemID } = useParams();
+    const { colID, itemID } = useParams();
   
     useEffect(() => {
        
@@ -20,7 +23,7 @@ const ItemPage = () => {
   
         setLoading(true);
   
-        const response = await fetch(API + "/collections/" + itemID)
+        const response = await fetch(API + "/collections/" + colID)
         .then(response => response.json())
         .then(data => data)
         .catch(err => console.log(err));  
@@ -47,9 +50,9 @@ const ItemPage = () => {
                         <img className=" aspect-square rounded-2xl max-w-[60%] object-cover place-self-center" src={item.img} alt={item.name}></img>
                     </div>
                     <div className="flex justify-between mx-[20%] pt-10 gap-10">
-                        <button class="btn btn-primary drop-shadow-md">Share</button>
+                        <button class="btn btn-primary drop-shadow-md">Share <BsFillShareFill className="ml-2"></BsFillShareFill></button>
                         <button class="btn btn-primary drop-shadow-md">Add to whishlist</button>
-                        <button class="btn btn-primary drop-shadow-md">Mark as “to sell”</button>
+                        <button class="btn btn-primary drop-shadow-md">Mark as “to sell” <MdSell className="ml-2"></MdSell></button>
                     </div>
                 </div>
                 <div className="  mt-20 mr-20">
@@ -64,8 +67,8 @@ const ItemPage = () => {
                        ))} 
                     </div>
                     <div className="flex flex-row justify-around p-[9%]">
-                        <button class="btn btn-primary drop-shadow-md">Add to whishlist</button>
-                        <button class="btn btn-primary drop-shadow-md">Mark as “to sell”</button>
+                        <button class="btn btn-primary drop-shadow-md">Edit <FaPencilAlt className="ml-2 text-lg"></FaPencilAlt></button>
+                        <button class="btn btn-primary drop-shadow-md">Delete <MdDeleteForever className="ml-2 text-2xl"></MdDeleteForever></button>
                     </div>
                 </div>
             </div>

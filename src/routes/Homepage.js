@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar";
 import LoadingPage from '../components/LoadingPage';
 import CollectionCardModal from '../components/CollectionCardModal';
 import { motion, AnimatePresence } from 'framer-motion';
+import useScrollBlock from "../lock";
 
 import API from "../index.js" 
 
@@ -15,17 +16,20 @@ function Homepage() {
   const[tags, setTags] = useState([]);
   const[items, setItems] = useState([]);
   const[loading, setLoading] = useState(false);
+  const [blockScroll, allowScroll] = useScrollBlock();
 
   const[collectionOpen,setCollectionOpen] = useState(false);
   const [selectedCollection, setSelectedCollection] = useState(null)
   const closeCollection = () => {
     setCollectionOpen(false);
     setSelectedCollection(null);
+    allowScroll();
   };
   
   const openCollection = (id) => {
     setCollectionOpen(true);
     setSelectedCollection(id);
+    blockScroll();    
   };
 
   useEffect(() => {
@@ -58,14 +62,14 @@ function Homepage() {
       <div className="mx-24 text-gray-950 text-center">
         <Utilites title = "Home" searchOnly={true}/>
         <h1 className="text-4xl text-start mb-5">Recent</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-3 gap-12 justify-items-center">
+        <div className=" flex flex-row py-3 gap-12 justify-items-center overflow-x-auto snap-x">
         {collections.length === 0 && !{loading} && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
           {collections.map(collection => (
-            <CollectionCard collection={collection} key={collection.id} onClick={() => (collectionOpen ? closeCollection() : openCollection(collection))}/>
+            <CollectionCard collection={collection} key={collection.id} className={"snap-start"} onClick={() => (collectionOpen ? closeCollection() : openCollection(collection))}/>
           ))}
         </div>
         <h1 className="text-4xl text-start mb-5 mt-12">Favorites</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-3 gap-12 justify-items-center">
+        <div className="flex flex-row py-3 gap-12 justify-items-center overflow-x-auto">
         {collections.length === 0 && !{loading} && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
           {collections.map(collection => (
             <CollectionCard collection={collection} key={collection.id} onClick={() => (collectionOpen ? closeCollection() : openCollection(collection))}/>

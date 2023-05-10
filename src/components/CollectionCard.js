@@ -1,6 +1,6 @@
-function CollectionCard({collection, onClick}) {
+function CollectionCard({collection, onClick, className}) {
     return (
-      <div className="card h-60 shadow-xl" onClick={onClick}>
+      <div className={`${className} card h-60 shadow-xl min-w-[400px]`} onClick={onClick}>
         <figure><img src={collection.img} alt="Collection img" /></figure>
         <div className="h-[50%]">
           <div className=" text-2xl flex flex-row justify-between my-7 mx-10">
