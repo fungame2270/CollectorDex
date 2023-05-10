@@ -61,7 +61,7 @@ function CollectionPage() {
       <div className="text-gray-950 text-center bg-bgblue">
         <NavBar></NavBar>
         <div className="mx-24 text-gray-950 text-center">
-            <NewAndTitle ID={collection.id} title={collection.name}></NewAndTitle>
+            <NewAndTitle ID={collection.id} title={collection.name} searchSet={choseSearch}></NewAndTitle>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-3 gap-12 justify-items-center">
           { items.length === 0 && !{loading} && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
             { itemsF.map(item => (
