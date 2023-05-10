@@ -39,7 +39,7 @@ const router = createBrowserRouter([
     element: < ItemPage />,
   },
   {
-    path: "/AddItem/:title",
+    path: "/AddItem/:colid/:title",
     element: <AddItem/>
   }
 ]);
