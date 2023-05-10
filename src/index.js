@@ -13,6 +13,7 @@ import AllCollections from './routes/AllCollections';
 import Login from './routes/Login';
 import ItemPage from './routes/ItemPage'
 import CollectionPage from './routes/CollectionPage';
+import AddItem from './routes/AddItem';
 
 const API = "http://localhost:5000";
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
     path: "/AllCollections/:colID/:itemID",
     element: < ItemPage />,
   },
+  {
+    path: "/AddItem/:title",
+    element: <AddItem/>
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
