@@ -23,7 +23,6 @@
         },
         {
           "id": "2",
-<<<<<<< HEAD
           "name": "Songs About Jane - Marron Five",
           "img": "https://i.scdn.co/image/ab67616d0000b27317b3850d758fff5a2301e537",
           "description": "Songs About Jane is the debut studio album by American pop rock band Maroon 5. The album was released on June 25, 2002, by Octone and J Records. It became a sleeper hit with the help of five singles that attained chart success, including Harder to Breathe, This Love, and She Will Be Loved. ",
@@ -36,19 +35,13 @@
             "yes",
             "2003"
           ]
-=======
-          "name": "currents",
-          "img": "https://www.pngkey.com/png/detail/233-2332677_ega-png.png",
-          "description": "",
-          "tags": []
         },
         {
           "id": "3",
-          "name": "st elsewhere",
+          "name": "El Vynil",
           "img": "https://www.pngkey.com/png/detail/233-2332677_ega-png.png",
-          "description": "cee loo green",
+          "description": "boogafi",
           "tags": []
->>>>>>> d67883c50bd7760180007ff069754136ac5f8ae7
         }
       ]
     },
@@ -62,49 +55,30 @@
     },
     {
       "id": "3",
-<<<<<<< HEAD
       "name": "Dogs",
       "img": "https://i.imgur.com/JXetxQh.jpeg",
       "description": "A minha colecao canina. Uns doceis outros bravos mas todos estao no meu coracon",
-=======
-      "name": "Vinyl",
-      "img": "https://images.unsplash.com/photo-1629726211447-3df75890f372?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      "description": "vinyl records",
->>>>>>> d67883c50bd7760180007ff069754136ac5f8ae7
       "tags": [],
       "items": []
     },
     {
       "id": "4",
-<<<<<<< HEAD
       "name": "Dogs",
       "img": "https://i.imgur.com/JXetxQh.jpeg",
       "description": "A minha colecao canina. Uns doceis outros bravos mas todos estao no meu coracon",
       "tags": [],
-=======
-      "name": "Caps",
-      "img": "https://www.pngkey.com/png/detail/233-2332677_ega-png.png",
-      "description": "",
->>>>>>> d67883c50bd7760180007ff069754136ac5f8ae7
       "items": []
     },
     {
       "id": "5",
-<<<<<<< HEAD
       "name": "Dogs",
       "img": "https://i.imgur.com/JXetxQh.jpeg",
       "description": "A minha colecao canina. Uns doceis outros bravos mas todos estao no meu coracon",
       "tags": [],
-=======
-      "name": "caps2",
-      "img": "https://www.pngkey.com/png/detail/233-2332677_ega-png.png",
-      "description": "",
->>>>>>> d67883c50bd7760180007ff069754136ac5f8ae7
       "items": []
     },
     {
       "id": "6",
-<<<<<<< HEAD
       "name": "Dogs",
       "img": "https://i.imgur.com/JXetxQh.jpeg",
       "description": "A minha colecao canina. Uns doceis outros bravos mas todos estao no meu coracon",
@@ -130,9 +104,6 @@
     {
       "id": "9",
       "name": "aa",
-=======
-      "name": "aaa",
->>>>>>> d67883c50bd7760180007ff069754136ac5f8ae7
       "img": "https://www.pngkey.com/png/detail/233-2332677_ega-png.png",
       "description": "",
       "items": []

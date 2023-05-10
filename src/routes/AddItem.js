@@ -83,39 +83,39 @@ function AddItem() {
         <h1 className="m-20 text-4xl font-bold text-start">Adding to {title}</h1>
         <div className="grid md:grid-cols-2 mt-12 mb-20 mx-24 text-gray-950 text-center">
 
-        <div className="pr-[20%]">
-            <img src={img_placeholder}/>
-        </div>
+          <div className="pr-[20%]">
+              <img src={img_placeholder}/>
+          </div>
 
-        <form className="form-control w-full max-w-sm" style={{fontSize: 18}} onSubmit={handleSubmit}>
-            <label className="label">
-              <span className="text-gray-500" >Name:</span>
-            </label>
-            <input placeholder="Item name" name="name" className="input input-bordered w-full" value={"" || name} onChange={(e) => setName(e.target.value)} required/>
+          <form className="form-control w-full max-w-sm" style={{fontSize: 18}} onSubmit={handleSubmit}>
+              <label className="label">
+                <span className="text-gray-500" >Name:</span>
+              </label>
+              <input placeholder="Item name" name="name" className="input input-bordered w-full drop-shadow-md" value={"" || name} onChange={(e) => setName(e.target.value)} required/>
 
-            <label className="label">
-              <span className="text-gray-500">Descripition:</span>
-            </label>
-            <textarea className="textarea textarea-bordered h-24" name="desc" placeholder="Item description" value={"" || description} onChange={(e) => setDescription(e.target.value)}></textarea>
+              <label className="label">
+                <span className="text-gray-500">Descripition:</span>
+              </label>
+              <textarea className="textarea textarea-bordered h-24 drop-shadow-md" name="desc" placeholder="Item description" value={"" || description} onChange={(e) => setDescription(e.target.value)}></textarea>
 
-            <label className="label">
-              <span className="text-gray-500">Tags:</span>
-            </label>
-            <textarea className="textarea textarea-bordered h-24 mb-0" name="tags" placeholder="#Tag" value={"" || tags} onChange={(e) => setTags(e.target.value.split(/#\s,/))}></textarea>
+              <label className="label">
+                <span className="text-gray-500">Tags:</span>
+              </label>
+              <textarea className="textarea textarea-bordered h-24 mb-0 drop-shadow-md" name="tags" placeholder="#Tag" value={"" || tags} onChange={(e) => setTags(e.target.value.split(/#\s,/))}></textarea>
 
-            <div className="mb-10 ">
-                
-            <input type="submit" className="mr-3 mt-10 btn btn-active btn-primary" value="create" readOnly/>
-            <input type="submit" className="mt-10 btn btn-active btn-primary" value="Create and Share" readOnly/>
-            <Link to={"/AllCollections/" + colid} className="mt-5 btn btn-active btn-primary w-[95%]">Cancel and go back to {title}</Link>
-                
-            </div>
-            
-                     
+              <div className="mb-10 ">
+                  
+              <input type="submit" className="mr-3 mt-10 btn btn-active btn-primary drop-shadow-md" value="create" readOnly/>
+              <input type="submit" className="mt-10 btn btn-active btn-primary drop-shadow-md" value="Create and Share" readOnly/>
+              <Link to={"/AllCollections/" + colid} className="mt-5 btn btn-active btn-primary w-[95%] drop-shadow-md">Cancel and go back to {title}</Link>
+                  
+              </div>
+              
+                      
 
-            
-            
-        </form>
+              
+              
+          </form>
 
         </div>
       </div>
