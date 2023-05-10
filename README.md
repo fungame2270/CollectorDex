@@ -5,6 +5,7 @@ npm install react-router-dom localforage match-sorter sort-by
 npm install react-icons --save
 npm install json-server
 npm install framer-motion
+npm install sweetalert2
 
 # Run json server
 npm run server
