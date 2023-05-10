@@ -1,13 +1,15 @@
 import BackDrop from "./BackDrop";
-import { AiFillStar } from 'react-icons/ai';
+import { AiFillStar,AiOutlineStar } from 'react-icons/ai';
 import { Link } from "react-router-dom";
 import { useState} from 'react';
 import ImagePlaceholder from "../images/img_placeholder.jpeg";
+import { motion } from "framer-motion";
 
 const CollectionCardModal = ({handleclose ,collection, adding, handleSubmit}) => {
 
     const [name, setName] = useState("");  
     const [description, setDescription] = useState("");
+    const [fav,setFav] = useState(false);
 
     if(adding){
       return(
@@ -46,7 +48,11 @@ const CollectionCardModal = ({handleclose ,collection, adding, handleSubmit}) =>
                     <div className="">
                       <div className="flex justify-between p-2">
                         <p className="font-bold text-left text-4xl">{collection.name}</p>
-                        <AiFillStar className="text-3xl place-self-end" />
+                        <motion.div whileHover={{ y:[0,-5,0],transition: { repeat: Infinity }}}
+                                    onClick={() => {setFav(!fav)}}
+                        >{fav && <AiFillStar className="text-3xl place-self-end"/>}
+                         {!fav && <AiOutlineStar className="text-3xl place-self-end"></AiOutlineStar> }
+                        </motion.div>
                       </div>
                       <img className="rounded-lg object-cover" src={collection.img} alt="Shoes" />
                     </div>
