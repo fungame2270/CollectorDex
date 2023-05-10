@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useState} from 'react';
 import ImagePlaceholder from "../images/img_placeholder.jpeg";
 import { motion } from "framer-motion";
+import { FaRegEye } from "react-icons/fa"
+import { BsFillShareFill } from "react-icons/bs"
 
 const CollectionCardModal = ({handleclose ,collection, adding, handleSubmit}) => {
 
@@ -60,8 +62,8 @@ const CollectionCardModal = ({handleclose ,collection, adding, handleSubmit}) =>
                         <p className="font-bold text-left text-3xl">Description:</p>
                         <p className="text-left text-2xl">{collection.description}</p>
                         <div className="flex justify-around mt-7">
-                          <Link to={"/AllCollections/" + collection.id} onClick={handleclose} class="btn btn-primary drop-shadow">View</Link>
-                          <button className="btn btn-primary drop-shadow">Share</button>
+                          <Link to={"/AllCollections/" + collection.id} onClick={handleclose} class="btn btn-primary drop-shadow">View <FaRegEye className="ml-2 text-lg"></FaRegEye></Link>
+                          <button className="btn btn-primary drop-shadow">Share <BsFillShareFill className="ml-2 text-lg"></BsFillShareFill></button>
                         </div>
                     </div>
                 </div>
