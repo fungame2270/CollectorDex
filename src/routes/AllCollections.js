@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar";
 import CollectionCardModal from '../components/CollectionCardModal';
 import { AnimatePresence } from 'framer-motion';
 import LoadingPage from '../components/LoadingPage';
+import useScrollBlock from "../lock";
 import Swal from 'sweetalert2';
 
 import API from "../index.js" 
@@ -13,6 +14,12 @@ function AllCollections() {
 
   const[collections, setCollections] = useState([]);
   const[collectionF , setCollectionF] = useState([]);
+  const[name, setName] = useState("");
+  const[description, setDescription] = useState("");
+  const[tags, setTags] = useState([]);
+  const[items, setItems] = useState([]);
+  const [blockScroll, allowScroll] = useScrollBlock();
+
 
   const choseSearch = (text) => {
     if(text.length > 0){
@@ -39,11 +46,13 @@ function AllCollections() {
   const closeCollection = () => {
     setCollectionOpen(false);
     setSelectedCollection(null);
+    allowScroll();
   };
   
   const openCollection = (id) => {
     setCollectionOpen(true);
     setSelectedCollection(id);
+    blockScroll();
   };
   
   useEffect(() => {
@@ -68,7 +77,6 @@ function AllCollections() {
   }, [])
 
   
-  console.log(collectionF)
 
 
   const handleSubmit = async (e) => {
@@ -111,7 +119,7 @@ function AllCollections() {
   }
 
   return (
-    <div className="text-gray-950 text-center bg-bgblue">
+    <div className="text-gray-950 text-center bg-bgblue ">
       <NavBar></NavBar>
       <div className="mx-24 text-gray-950 text-center">
         <Utilites title="All Collections" searchOnly={false} addingOpen={addingOpen} openAdding={openAdding} closeAdding={closeAdding} searchSet={choseSearch}/>

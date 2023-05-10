@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar";
 import LoadingPage from '../components/LoadingPage';
 import CollectionCardModal from '../components/CollectionCardModal';
 import { motion, AnimatePresence } from 'framer-motion';
+import useScrollBlock from "../lock";
 
 import API from "../index.js" 
 
@@ -15,17 +16,20 @@ function Homepage() {
   const[tags, setTags] = useState([]);
   const[items, setItems] = useState([]);
   const[loading, setLoading] = useState(false);
+  const [blockScroll, allowScroll] = useScrollBlock();
 
   const[collectionOpen,setCollectionOpen] = useState(false);
   const [selectedCollection, setSelectedCollection] = useState(null)
   const closeCollection = () => {
     setCollectionOpen(false);
     setSelectedCollection(null);
+    allowScroll();
   };
   
   const openCollection = (id) => {
     setCollectionOpen(true);
     setSelectedCollection(id);
+    blockScroll();    
   };
 
   useEffect(() => {
