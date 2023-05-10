@@ -1,5 +1,4 @@
 import NavBar from "../components/NavBar";
-import NewAndTitle from "../components/NewAndTitle";
 import img_placeholder from "../images/img_placeholder.jpeg"
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
@@ -9,17 +8,13 @@ import Swal from 'sweetalert2';
 import API from "../index.js" 
 
 
-
 function AddItem() {
 
     const[loading, setLoading] = useState(false);
     const [name, setName] = useState("");  
     const [description, setDescription] = useState("");
     const [tags, setTags] = useState([]);
-    const [image, setImage] = useState("");
-    const [Items, setItems] = useState([]);
-    const [Collection, setCollection] = useState([]);
-
+    //const [image, setImage] = useState("");
 
     const {colid, title} = useParams();
 
@@ -31,40 +26,48 @@ function AddItem() {
         .then(data => data)
         .catch(err => console.log(err));
         
-        setCollection(response);
-        setItems(response.items);
+        console.log(response.items);
+        const items = response.items;
 
+        console.log(items.length);
     
         const Item = {
-          id: Item.length + 1 + "",
+          id: items.length + 1 + "",
           name: e.target.elements.name.value,
           img: "https://www.pngkey.com/png/detail/233-2332677_ega-png.png",
           description: e.target.elements.desc.value,
           tags: []
         }
 
-        setItems( (prevState) => [...prevState, Item]);
-        setItems( (prevState) => [...prevState, Item]);
-        
+        items.push(Item)
+
+        const updatedCollection = {
+          id: colid,
+          name: title,
+          img: response.img,
+          description: response.description,
+          items: items
+        }  
+
+        console.log(updatedCollection)
+
         setLoading(true);
     
-        await fetch(API + "/collections/" + colid, {
-          method: "POST",
-          body: JSON.stringify(Item),
+        await fetch(API + "/collections/" + colid , {
+          method: "PUT",
+          body: JSON.stringify(updatedCollection),
           headers: {
             "Content-Type": "application/json",
           }
         });
     
-        setItems( (prevState) => [...prevState, Item]);
-    
         setLoading(false);
     
         Swal.fire({
-          title: "Collection created successfully!",
+          title: "Item added successfully!",
           icon: "success",
-          timer: 2000,
-          position: 'top',
+          timer: 1500,
+          position: 'middle',
           showConfirmButton: false,
         });
       };
@@ -88,7 +91,7 @@ function AddItem() {
             <label className="label">
               <span className="text-gray-500" >Name:</span>
             </label>
-            <input type="text" placeholder="Item name" name="name" className="input input-bordered w-full" value={"" || name} onChange={(e) => setName(e.target.value)} required/>
+            <input placeholder="Item name" name="name" className="input input-bordered w-full" value={"" || name} onChange={(e) => setName(e.target.value)} required/>
 
             <label className="label">
               <span className="text-gray-500">Descripition:</span>
@@ -98,13 +101,13 @@ function AddItem() {
             <label className="label">
               <span className="text-gray-500">Tags:</span>
             </label>
-            <textarea className="textarea textarea-bordered h-24 mb-0" name="name" placeholder="#Tag" value={"" || tags} onChange={(e) => setTags(e.target.value.split(/#\s,/))}></textarea>
+            <textarea className="textarea textarea-bordered h-24 mb-0" name="tags" placeholder="#Tag" value={"" || tags} onChange={(e) => setTags(e.target.value.split(/#\s,/))}></textarea>
 
             <div className="mb-10 ">
                 
-            <input type="submit" class="mr-3 mt-10 btn btn-active btn-primary"value="create"/>
-            <input class="mt-10 btn btn-active btn-primary" value="Create and Share"/>
-            <input class="mt-5 btn btn-active btn-primary w-[95%]" value={"Create and back to " + title}/ >
+            <input type="submit" className="mr-3 mt-10 btn btn-active btn-primary" value="create" readOnly/>
+            <input type="submit" className="mt-10 btn btn-active btn-primary" value="Create and Share" readOnly/>
+            <Link to={"/AllCollections/" + colid} className="mt-5 btn btn-active btn-primary w-[95%]">Cancel and go back to {title}</Link>
                 
             </div>
             

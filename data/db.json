@@ -20,6 +20,20 @@
             "yelow",
             "1968"
           ]
+        },
+        {
+          "id": "2",
+          "name": "currents",
+          "img": "https://www.pngkey.com/png/detail/233-2332677_ega-png.png",
+          "description": "",
+          "tags": []
+        },
+        {
+          "id": "3",
+          "name": "st elsewhere",
+          "img": "https://www.pngkey.com/png/detail/233-2332677_ega-png.png",
+          "description": "cee loo green",
+          "tags": []
         }
       ]
     },
@@ -42,6 +56,20 @@
     {
       "id": "4",
       "name": "Caps",
+      "img": "https://www.pngkey.com/png/detail/233-2332677_ega-png.png",
+      "description": "",
+      "items": []
+    },
+    {
+      "id": "5",
+      "name": "caps2",
+      "img": "https://www.pngkey.com/png/detail/233-2332677_ega-png.png",
+      "description": "",
+      "items": []
+    },
+    {
+      "id": "6",
+      "name": "aaa",
       "img": "https://www.pngkey.com/png/detail/233-2332677_ega-png.png",
       "description": "",
       "items": []
