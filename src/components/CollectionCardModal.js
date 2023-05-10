@@ -60,7 +60,7 @@ const CollectionCardModal = ({handleclose ,collection, adding, handleSubmit}) =>
                         <p className="font-bold text-left text-3xl">Description:</p>
                         <p className="text-left text-2xl">{collection.description}</p>
                         <div className="flex justify-around mt-7">
-                          <Link to={collection.id} class="btn btn-primary drop-shadow">View</Link>
+                          <Link to={collection.id} onClick={handleclose} class="btn btn-primary drop-shadow">View</Link>
                           <button class="btn btn-primary drop-shadow">Share</button>
                         </div>
                     </div>
