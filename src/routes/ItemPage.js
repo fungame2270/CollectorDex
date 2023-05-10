@@ -1,5 +1,5 @@
 import NavBar from "../components/NavBar";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import LoadingPage from '../components/LoadingPage';
 import { FaPencilAlt } from "react-icons/fa"
@@ -13,7 +13,7 @@ const ItemPage = () => {
 
     const[item, setItem] = useState([]);
     const[loading, setLoading] = useState(false);
-    const[ tags, setTags] = useState([]);
+    const[colName, setName] = useState([]);
 
     const { colID, itemID } = useParams();
   
@@ -28,13 +28,14 @@ const ItemPage = () => {
         .then(data => data)
         .catch(err => console.log(err));  
         setItem(response.items[itemID-1]);
+        setName(response.name);
         
         setLoading(false);
       }
   
       loadData();
   
-    }, [ itemID ])
+    }, [ itemID, colID ])
     
     if(loading) {
     return(<LoadingPage></LoadingPage>)
@@ -43,8 +44,9 @@ const ItemPage = () => {
     return(
         <div className="bg-bgblue h-full">
             <NavBar></NavBar>
+            <div><Link to={"/AllCollections/" + colID} className="btn btn-accent btn-link "> <p className="text-accent decoration-none">{"< Go back to '" + colName + "'"}</p></Link></div>
             <div className="grid md:grid-cols-2  text-black bg-bgblue pt-10 mx-20">
-                <div className=" place-self-center">
+                <div className="place-self-center">
                     <div className="flex flex-col place-items-center">
                         <p className=" font-bold text-5xl text-left pb-4">{item.name}</p>
                         <img className=" aspect-square rounded-2xl w-[60%] object-cover place-self-center" src={item.img} alt={item.name}></img>
@@ -55,7 +57,7 @@ const ItemPage = () => {
                         <button className="btn btn-primary drop-shadow-md">Mark as “to sell” <MdSell className="ml-2"></MdSell></button>
                     </div>
                 </div>
-                <div className="  mt-20 mr-20">
+                <div className="mt-20 mr-20">
                     <div className=" h-[60%]">
                         <p className=" text-3xl font-bold pb-2">Description:</p>
                         <p className=" text-xl bg-white rounded-2xl p-2 h-[85%] drop-shadow-md">{item.description}</p>
