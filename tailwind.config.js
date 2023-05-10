@@ -18,7 +18,8 @@ module.exports = {
         "primary": "#ffffff",
         "neutral": "#ffffff",
         "secondary": "#f5f5f0",
-        "accent": "#58287F"
+        "accent": "#58287F",
+        'error': '#e3342f'
       },
     },
     ],
