@@ -44,7 +44,7 @@ const ItemPage = () => {
     return(
         <div className="bg-bgblue h-full">
             <NavBar></NavBar>
-            <div><Link to={"/AllCollections/" + colID} className="btn btn-accent btn-link "> <p className="text-accent decoration-none">{"< Go back to '" + colName + "'"}</p></Link></div>
+            <div className="bg-bgblue text-xl font-bold  py-4 px-8 w-[250px]"><Link to={"/AllCollections/" + colID} ><p className="text-accent decoration-none">{"< Go back to '" + colName + "'"}</p></Link></div>
             <div className="grid md:grid-cols-2  text-black bg-bgblue pt-10 mx-20">
                 <div className="place-self-center">
                     <div className="flex flex-col place-items-center">
