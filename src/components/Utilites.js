@@ -2,7 +2,7 @@ import { ReactComponent as Filter } from "../images/filter.svg";
 import { AiOutlineSearch } from 'react-icons/ai';
 
 
-function Utilites({title, searchOnly, addingOpen, closeAdding, openAdding, searchSet}) {
+function Utilites({title, searchOnly, addingOpen, closeAdding, openAdding, searchSet,hide}) {
 
     const handleSearchChange = (event) =>{
         searchSet(event.target.value);

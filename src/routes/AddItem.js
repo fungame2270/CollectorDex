@@ -84,6 +84,7 @@ function AddItem() {
   return (
     <div className="text-gray-950 text-center bg-bgblue h-screen">
         <NavBar></NavBar>
+        <div className="bg-bgblue text-xl font-bold  py-4 px-8 w-[250px]"><Link to={"/AllCollections/" + colid} ><p className="text-accent decoration-none">{"< Go back to '" + title + "'"}</p></Link></div>
         <h1 className="m-20 text-4xl font-bold text-start">Adding to {title}</h1>
         <div className="grid md:grid-cols-2 mt-12 mb-20 mx-24 text-gray-950 text-center">
 
@@ -111,7 +112,7 @@ function AddItem() {
                 
             <input type="submit" className="mr-3 mt-10 btn btn-accent drop-shadow-md" value="create" readOnly/>
             <input type="submit" className="mt-10 btn btn-accent drop-shadow-md" value="Create and Share" readOnly/>
-            <Link to={"/AllCollections/" + colid} className="mt-5 btn btn-outline btn-error w-[95%] drop-shadow-md">Cancel and go back to {title}</Link>
+            
                 
             </div>
             

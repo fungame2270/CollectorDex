@@ -56,6 +56,7 @@ function CollectionPage() {
     return (
       <div className="text-gray-950 text-center bg-bgblue">
         <NavBar></NavBar>
+        <div className="bg-bgblue text-xl font-bold  py-4 px-8 w-[300px]"><Link to={"/AllCollections"} ><p className="text-accent decoration-none">{"< Go back to collections"}</p></Link></div>
         <div className="mx-24 text-gray-950 text-center">
             <NewAndTitle ID={collection.id} title={collection.name} searchSet={choseSearch}></NewAndTitle>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-3 gap-12 justify-items-center">
