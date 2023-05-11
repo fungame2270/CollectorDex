@@ -62,6 +62,10 @@ function AddItem() {
         });
     
         setLoading(false);
+
+        setName("");
+        setDescription("");
+        setTags([]);
     
         Swal.fire({
           title: "Item added successfully!",
