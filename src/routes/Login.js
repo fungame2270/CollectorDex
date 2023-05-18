@@ -70,19 +70,18 @@ const Login = () => {
                 onSubmit={handleSubmit}
               >
                 Sign In
-                {/* Usar form?? Se clicar no nome diretamente vai direto p home sem verificar se o form ta preenchido */}
               </button>
             
              
             </div>
           </form>
 
-          <p className="mt-5 text-center text-sm text-gray-400">
+          {/*<p className="mt-5 text-center text-sm text-gray-400">
             Don't have an account?{' '}
             {/* <a href="#" className="font-semibold">
               Register here
-            </a> */}
-          </p>
+            </a> 
+          </p>*/}
         </div>
       </div>
 
