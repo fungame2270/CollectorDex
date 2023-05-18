@@ -42,22 +42,22 @@ const ItemPage = () => {
     }
 
     return(
-        <div className="bg-bgblue h-full">
+        <div className="bg-bgblue pb-40">
             <NavBar></NavBar>
-            <div className="bg-bgblue text-xl font-bold  py-4 px-8 w-[250px]"><Link to={"/AllCollections/" + colID} ><p className="text-accent decoration-none">{"< Go back to '" + colName + "'"}</p></Link></div>
-            <div className="grid md:grid-cols-2  text-black bg-bgblue pt-10 mx-20">
+            <div className="bg-bgblue text-md md:text-xl font-bold  py-4 px-8 w-[250px]"><Link to={"/AllCollections/" + colID} ><p className="text-accent decoration-none">{"< Go back to '" + colName + "'"}</p></Link></div>
+            <div className="grid lg:grid-cols-2  text-black bg-bgblue pt-10 mx-3 md:mx-20">
                 <div className="place-self-center">
                     <div className="flex flex-col place-items-center">
-                        <p className=" font-bold text-5xl text-left pb-4">{item.name}</p>
+                        <p className=" font-bold text-lg md:text-5xl text-left pb-4">{item.name}</p>
                         <img className=" aspect-square rounded-2xl w-[60%] object-cover place-self-center" src={item.img} alt={item.name}></img>
                     </div>
-                    <div className="flex justify-between mx-[20%] pt-10 gap-10">
+                    <div className="grid grid-cols-2 md:grid-cols-2 justify-between md:mx-[20%] pt-10 gap-3 md:gap-10">
                         <button className="btn btn-primary drop-shadow-md">Share <BsFillShareFill className="ml-2"></BsFillShareFill></button>
                         <button className="btn btn-primary drop-shadow-md">Add to whishlist</button>
                         <button className="btn btn-primary drop-shadow-md">Mark as “to sell” <MdSell className="ml-2"></MdSell></button>
                     </div>
                 </div>
-                <div className="mt-20 mr-20">
+                <div className=" mt-6 md:mt-20 mx-2 md:mr-20">
                     <div className=" h-[60%]">
                         <p className=" text-3xl font-bold pb-2">Description:</p>
                         <p className=" text-xl bg-white rounded-2xl p-2 h-[85%] drop-shadow-md">{item.description}</p>
