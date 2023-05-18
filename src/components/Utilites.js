@@ -13,10 +13,7 @@ function Utilites({title, searchOnly, addingOpen, closeAdding, openAdding, searc
             <div className="grid md:grid-cols-2 mt-12 mb-20">
                 <h1 className="text-4xl font-bold text-start">{title}</h1>
                 <div className="flex flex-row-reverse gap-4 justify-items-end">
-                    <div className="input-group drop-shadow float-right justify-end">
-                        <input className="input w-full max-w-[50%]" placeholder="Search for collection..."></input>
-                        <button className="btn btn-secondary"><AiOutlineSearch></AiOutlineSearch></button>
-                    </div>
+                    
                 </div>
             </div>
         )
