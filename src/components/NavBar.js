@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
+import { ReactComponent as Logo } from "../images/LogoNavBar.svg";
 
 function NavBar({}) {
     return (
         <div className="navbar bg-base-100">
         <div className="flex-1">
-          <Link to="/Home" className="btn text-sky-900 hover:bg-white hover:border-white hover:-translate-y-0.5 normal-case text-xl"> CollectorDex</Link>
-          <div className="invisible sm:visible">
-            <Link to="/Home"className="btn hover:bg-white hover:border-white hover:-translate-y-0.5"> Home</Link>
-            <Link to="/AllCollections"className="btn hover:bg-white hover:border-white hover:-translate-y-0.5"> All Collections</Link>
+          <Link to="/Home" className="btn text-sky-900 hover:bg-white hover:border-white hover:-translate-y-0.5 normal-case text-xl"> <Logo/></Link>
+          <div className="invisible sm:visible" >
+            <Link to="/Home"className="btn hover:bg-white hover:border-white hover:-translate-y-0.5 " style={{color: '#58287F'}}> Home</Link>
+            <Link to="/AllCollections"className="btn hover:bg-white hover:border-white hover:-translate-y-0.5" style={{color: '#58287F'}}> All Collections</Link>
           </div> 
         </div>
         <div className="flex-none sm:invisible">
