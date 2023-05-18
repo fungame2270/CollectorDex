@@ -15,7 +15,7 @@ const Login = () => {
       
         <div className="grid flex-1 flex-col justify-center">
       
-          <div className="grid content-center justify-items-center" style={{margin: '50px 0px 100px 0px'}}>
+          <div className="grid content-center justify-items-center pl-20"style={{margin: '50px 0px 100px 0px'}}>
               <Logo/>
           </div>
           
