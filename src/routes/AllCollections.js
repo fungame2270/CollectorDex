@@ -114,9 +114,9 @@ function AllCollections() {
   return (
     <div className="text-gray-950 text-center bg-bgblue ">
       <NavBar></NavBar>
-      <div className="mx-24 text-gray-950 text-center">
+      <div className="mx-6 md:mx-24 text-gray-950 text-center">
         <Utilites title="All Collections" searchOnly={false} addingOpen={addingOpen} openAdding={openAdding} closeAdding={closeAdding} searchSet={choseSearch}/>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-3 gap-12 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:py-3 gap-7 md:gap-12 justify-items-center">
         {collections.length === 0 && !{loading} && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
           {collectionF.map(collection => {
                 return <CollectionCard collection={collection} key={collection.id} onClick={() => (collectionOpen ? closeCollection() : openCollection(collection))}/>

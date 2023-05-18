@@ -56,20 +56,20 @@ function Homepage() {
   return (
     <div className="text-gray-950 text-center bg-bgblue">
       <NavBar></NavBar>
-      <div className="mx-24 text-gray-950 text-center">
+      <div className="mx-6 md:mx-24 text-gray-950 text-center">
         <Utilites title = "Home" searchOnly={true}/>
         <h1 className="text-4xl text-start mb-5">Recent</h1>
         <div className=" flex flex-row py-3 gap-12 justify-items-center overflow-x-auto snap-x">
         {collections.length === 0 && !{loading} && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
           {collections.map(collection => (
-            <CollectionCard collection={collection} key={collection.id} className={"snap-start min-w-[350px]"} onClick={() => (collectionOpen ? closeCollection() : openCollection(collection))}/>
+            <CollectionCard collection={collection} key={collection.id} className={"snap-start min-w-[300px] md:min-w-[350px]"} onClick={() => (collectionOpen ? closeCollection() : openCollection(collection))}/>
           ))}
         </div>
         <h1 className="text-4xl text-start mb-5 mt-12">Favorites</h1>
-        <div className="flex flex-row py-3 gap-12 justify-items-center overflow-x-auto">
+        <div className="flex flex-row py-3 gap-12 justify-items-center overflow-x-auto snap-x">
         {collections.length === 0 && !{loading} && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
           {collections.map(collection => (
-            <CollectionCard collection={collection} className={"min-w-[350px]"} key={collection.id} onClick={() => (collectionOpen ? closeCollection() : openCollection(collection))}/>
+            <CollectionCard collection={collection} className={"snap-start min-w-[300px] md:min-w-[350px]"} key={collection.id} onClick={() => (collectionOpen ? closeCollection() : openCollection(collection))}/>
           ))}
         </div>
       </div>
