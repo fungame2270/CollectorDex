@@ -4,14 +4,25 @@ import { Link } from "react-router-dom";
 import { useState} from 'react';
 import ImagePlaceholder from "../images/img_placeholder.jpeg";
 import { motion } from "framer-motion";
-import { FaRegEye } from "react-icons/fa"
-import { BsFillShareFill } from "react-icons/bs"
+import { FaRegEye } from "react-icons/fa";
+import { BsFillShareFill } from "react-icons/bs";
+import Swal from 'sweetalert2';
 
 const CollectionCardModal = ({handleclose ,collection, adding, handleSubmit}) => {
 
     const [name, setName] = useState("");  
     const [description, setDescription] = useState("");
     const [fav,setFav] = useState(false);
+
+    const confirmationAlert = () => {
+      Swal.fire({
+        title: "Link copied to clipboard!",
+        icon: "success",
+        timer: 1500,
+        position: 'middle',
+        showConfirmButton: false,
+      });
+    }
 
     if(adding){
       return(
@@ -63,7 +74,7 @@ const CollectionCardModal = ({handleclose ,collection, adding, handleSubmit}) =>
                         <p className="text-left text-2xl">{collection.description}</p>
                         <div className="flex justify-around mt-7">
                           <Link to={"/AllCollections/" + collection.id} onClick={handleclose} class="btn btn-primary drop-shadow">View <FaRegEye className="ml-2 text-lg"></FaRegEye></Link>
-                          <button className="btn btn-primary drop-shadow">Share <BsFillShareFill className="ml-2 text-lg"></BsFillShareFill></button>
+                          <button className="btn btn-primary drop-shadow" onClick={confirmationAlert}>Share <BsFillShareFill className="ml-2 text-lg"></BsFillShareFill></button>
                         </div>
                     </div>
                 </div>
