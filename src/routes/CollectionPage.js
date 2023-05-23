@@ -60,7 +60,7 @@ function CollectionPage() {
         <div className="mx-24 text-gray-950 text-center">
             <NewAndTitle ID={collection.id} title={collection.name} searchSet={choseSearch}></NewAndTitle>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-3 gap-12 justify-items-center">
-          { items.length === 0 && !{loading} && <p>No collection yet! Click on "New" to create a new collection."</p>} {/* Dar fix desse p */}
+          { items.length === 0 && !{loading} && <p>No items yet! Click on "New" to create a new item."</p>}
             { itemsF.map(item => (
               <Link to={item.id}> <ItemCard item={item} key={item.id}/> </Link>
             ))  }
